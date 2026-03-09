@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width,initial-scale=1" />
+	<title>NetXKill - Pentest Tool Download</title>
+	<style>
+		*{box-sizing:border-box}
+		body{font-family:Inter,Segoe UI,Arial,sans-serif;background:#000000;color:#0f172a;margin:0;padding:24px}
+		.container{max-width:780px;margin:24px auto;background:#ffffff;padding:28px;border-radius:8px;box-shadow:0 6px 18px rgba(12,14,20,0.06)}
+		h1{margin-top:0}
+		.notice{background:#fff4e6;padding:12px;border-left:4px solid #f5b70b}
+		form{display:grid;gap:12px;margin-top:16px}
+		label{font-size:14px}
+		input[type=text],input[type=email]{padding:10px;border:1px solid #e6e9ef;border-radius:6px}
+		.checkbox{display:flex;align-items:center;gap:8px}
+		.btn{background:#e90e0e;color:#fff;padding:10px 14px;border-radius:6px;border:none;cursor:pointer}
+		.terms{margin-top:18px;padding-top:12px;border-top:1px solid #ffffff}
+	</style>
+</head>
+<body>
+	<main class="container">
+		<h1>NetXKill — Pentester Download Portal (Demo)</h1>
+		<p class="notice">This portal provides a placeholder download for authorized penetration testers only. By downloading you confirm you are authorized to test systems and will comply with all applicable laws and policies.</p>
+
+		<form id="downloadForm" method="post" action="/download">
+			<label for="name">Full name</label>
+			<input id="name" name="name" required />
+
+			<label for="email">Work email</label>
+			<input id="email" name="email" type="email" required />
+
+			<label class="checkbox">
+				<input type="checkbox" id="agree" name="agree" value="1" required />
+				I confirm I am authorized to perform penetration testing on systems I target.
+			</label>
+
+			<button type="submit" class="btn">Download tool</button>
+		</form>
+
+		<section class="terms">
+			<h2>Legal & Safety</h2>
+			<p>Do not use these materials for illegal activity. This site is a demonstration scaffold and distributes a harmless placeholder file. For distributing actual pentesting tools, integrate proper licensing, authentication, and distribution controls.</p>
+		</section>
+	</main>
+	<script>
+		// Minimal client-side UX: disable the button after submit to avoid duplicate requests
+		(function(){
+			var form = document.getElementById('downloadForm');
+			if (!form) return;
+			form.addEventListener('submit', function(){
+				var btn = form.querySelector('button[type=submit]');
+				if (btn) { btn.disabled = true; btn.textContent = 'Preparing download...'; }
+			});
+		})();
+	</script>
+</body>
+</html>
